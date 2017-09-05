@@ -22,8 +22,9 @@ $( document ).ready( function()
 
         console.log(tempStatus)
         //define book(from the parent) and add status
-        // let tempBook = JSON.parse( tEvent.target.parentElement.dataset.book );
-        // addBookToUser( tempBook, tempStatus );
+        let bookData = $($this).closest('.main__books-wrapper')[0].dataset.book
+        let tempBook = JSON.parse( bookData );
+        addBookToUser( tempBook, tempStatus );
 
         $($this).removeClass('books__status-options--active')
     });

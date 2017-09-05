@@ -5,8 +5,8 @@ module.exports = function parseUsersBooks(results) {
 	let read = []
 	let wantToRead = []
 
-	userInfo.profile_img_url = results[0]['profile_img_url']
-	userInfo.UserId = results[0]['Books.UserBook.UserId']
+	userInfo.profile_img_url = results.length > 0 ? results[0]['profile_img_url'] : results['profile_img_url']
+	userInfo.UserId = results.length > 0 ? results[0]['Books.UserBook.UserId'] : results['Books.UserBook.UserId']
 
 	for (var index = 0; index < results.length; index++) {
 		var element = results[index];

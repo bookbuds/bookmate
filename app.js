@@ -3,15 +3,13 @@ const express = require( 'express' );
 const expressSession = require( 'express-session' );
 const passport = require( './config/passport.config' );
 const flash = require( 'connect-flash' );
-const webpack = require( 'webpack' );
 const path = require( 'path' );
 const favicon = require( 'serve-favicon' );
 const logger = require( 'morgan' );
 const cookieParser = require( 'cookie-parser' );
 const bodyParser = require( 'body-parser' );
 const errorHandler = require( './middleware/error-handler' );
-const webpackDevMiddleware = require( 'webpack-dev-middleware' );
-const webpackHotMiddleware = require( 'webpack-hot-middleware' );
+
 
 //SERVER
 const app = express();
@@ -23,11 +21,12 @@ app.set( 'views', path.join( __dirname, 'views' ) );
 app.set( 'view engine', 'pug' );
 
 //=========================
-// STATIC FILES
+// STATIC FILES OR WEBPACK
 //=========================
-app.use( express.static( path.join( __dirname, 'public' ) ) );
-
-if ( process.env.NODE_ENV !== 'production' ) {
+if ( process.env.NODE_ENV === 'development' ) {
+    const webpack = require( 'webpack' );
+    const webpackDevMiddleware = require( 'webpack-dev-middleware' );
+    const webpackHotMiddleware = require( 'webpack-hot-middleware' );
     const config = require('./webpack.config.js' );
     const compiler = webpack( config );
     app.use( webpackDevMiddleware( compiler, {
@@ -39,7 +38,7 @@ if ( process.env.NODE_ENV !== 'production' ) {
     app.use( webpackHotMiddleware( compiler, {
         log: console.log,
     }));
-} else {
+} else if ( process.env.NODE_ENV === 'production' ) {
     app.use( express.static( path.join( __dirname, 'public' ) ) );    
 }
 

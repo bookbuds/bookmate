@@ -8,7 +8,7 @@ block content
         .main__search-results
             each books in bookCollection
                 each book in books
-                    .main__books-wrapper(data-id='', data-title=book.title, data-author=book.author, data-imgurl=book.img)
+                    .main__books-wrapper(data-id='', data-book={title: book.title, author:book.author, img: book.img})
                         img.books__image(src=book.img alt="image")
                         p.books__title= book.title
                         p.books__author by #{book.author}
@@ -21,14 +21,14 @@ block content
                                     li.books__status-option(data-status='read') Read
                             
                     
-        .sidebar__users
-            .sidebar__button-close
-                i.fa.fa-times.fa-1x(aria-hidden="true")
-            .sidebar__heading
+        //- .sidebar__users
+        //-     .sidebar__button-close
+        //-         i.fa.fa-times.fa-1x(aria-hidden="true")
+        //-     .sidebar__heading
 
-            .sidebar__book-wrapper
+        //-     .sidebar__book-wrapper
 
-            .sidebar__user-wrapper
+        //-     .sidebar__user-wrapper
                     //- if user
                     //-     div.button-holder( data-book = book )
                     //-         button.book-button( data-status = 'read' ) Read

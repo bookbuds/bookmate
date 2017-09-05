@@ -13,6 +13,8 @@ function onDashboard(tRequest, tResponse) {
   if (tRequest.isAuthenticated()) {
     let username = tRequest.user.user_name;
     let profileImage = tRequest.user.profile_img_url;
+    let UserId = tRequest.user.id
+
     db.User
       .findAll({
         where: { id: tRequest.user.id },
@@ -27,7 +29,10 @@ function onDashboard(tRequest, tResponse) {
         raw: true
       })
       .then(results => {
-        console.log(parseUsersBooks(results));
+
+        results.profile_img_url = profileImage
+        results.UserId = UserId
+
         let userInfo = parseUsersBooks(results);
 
         tResponse.render("users/dashboard", {

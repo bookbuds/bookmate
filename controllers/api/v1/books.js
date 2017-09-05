@@ -49,11 +49,11 @@ function onAddBookToUser( tRequest, tResponse )
             console.log( tCreated );
 
             tRequest.user.addBook( tBook, { through: { status: tempStatus } } );
+            //say "yas it worked" to the browser (TODO convert to real json response)
+            tResponse.send( '200' );
         });
     }
 
-    //say "yas it worked" to the browser (TODO convert to real json response)
-    tResponse.send( '200' );
 }
 
 //=========================

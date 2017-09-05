@@ -6,19 +6,19 @@ block content
     include layouts/includes/nav
     .background
         .main__register-container
-            form.main__register-form(method="post" action="/register")
-                .main__register-logo-container
-                    div.main__register-logo-image
-                    p.main__register-logo-text BookMates
-                div.main__register-form-group
-                    label.main__register-input-label(for="username") Username
-                    input.main__register-input(type="text" name="username" placeholder="Pick a username" maxlength="25" value=(username === undefined ? '' : username) title="Username must be between 4-25 characters long." required)
-                div.main__register-form-group
-                    label.main__register-input-label(for="email") Email
-                    input.main__register-input(type="email" name="email" placeholder="Placeholder@email.com" value=(email === undefined ? '' : email) required)
-                div.main__register-form-group
-                    label.main__register-input-label(for="password") Password
-                    input.main__register-input(type="text" name="password" placeholder="Create a password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,}$" maxlength="100" title="Password must be between 8 and 100 characters and include one lowercase character, one uppercase character, a number, and a special character." required)
-                button.main__register-button(type="submit") Sign Up
+            //- form.main__register-form(method="post" action="/register")
+            //-     .main__register-logo-container
+            //-         div.main__register-logo-image
+            //-         p.main__register-logo-text BookMates
+            //-     div.main__register-form-group
+            //-         label.main__register-input-label(for="username") Username
+            //-         input.main__register-input(type="text" name="username" placeholder="Pick a username" maxlength="25" value=(username === undefined ? '' : username) title="Username must be between 4-25 characters long." required)
+            //-     div.main__register-form-group
+            //-         label.main__register-input-label(for="email") Email
+            //-         input.main__register-input(type="email" name="email" placeholder="Placeholder@email.com" value=(email === undefined ? '' : email) required)
+            //-     div.main__register-form-group
+            //-         label.main__register-input-label(for="password") Password
+            //-         input.main__register-input(type="text" name="password" placeholder="Create a password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.* )(?=.*[^a-zA-Z0-9]).{8,}$" maxlength="100" title="Password must be between 8 and 100 characters and include one lowercase character, one uppercase character, a number, and a special character." required)
+            //-     button.main__register-button(type="submit") Sign Up
 
 block footerscripts
